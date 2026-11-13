@@ -133,14 +133,14 @@
 <div class="formula" style="left:280px; top:275px;">$\psi_t$</div>
 <div id="psi-prev" class="formula visible" style="left:630px; top:275px;">$\psi_{t-1}$</div>
 <div id="psi-hat" class="formula hidden" style="left:630px; top:275px;">$\hat{\psi}_{t-1}$</div>
-<div id="psi-formula" class="formula hidden" style="left:400px; top:350px;">$2\psi_t - \psi_{t+1}$</div>
+<div id="psi-formula" class="formula hidden" style="left:400px; top:350px;">$2\psi_t - \hat{\psi}_{t+1}$</div>
 
 <script>
 window.onload = function() {
   // 阶段 1: 右侧 Model 变灰
   setTimeout(() => {
   document.getElementById('model-right').classList.add('model-gray');
-  document.getElementById('model-right-text').classList.add('model-text-white');
+  document.getElementById('model-right-text').classList.add('model-text-gray');
   document.getElementById('psi-prev').classList.add('fade-out');
   document.getElementById('bypass-text').classList.add('fade-in');
   

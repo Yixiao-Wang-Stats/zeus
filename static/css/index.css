@@ -230,3 +230,53 @@ body {
   vertical-align: middle;   /* 和文字垂直居中 */
   margin-left: 6px;         /* 和文字之间的间距 */
 }
+
+/* Content updates within the original project-page layout. */
+.zeus-result-figures figure { margin: 0; position: relative; }
+.zeus-result-figures a { display: block; }
+.zeus-result-figures img { display: block; width: 100%; height: auto; background: white; transition: transform .25s ease, box-shadow .25s ease; }
+.zeus-result-figures p { margin-top: .5em; }
+@media (hover: hover) and (pointer: fine) {
+  .zeus-result-figures figure:hover, .zeus-result-figures figure:focus-within { z-index: 2; }
+  .zeus-result-figures a:hover img, .zeus-result-figures a:focus-visible img { transform: scale(1.12); box-shadow: 0 8px 28px rgba(0, 0, 0, .12); }
+}
+.zeus-method-scroll { width: 100%; overflow-x: auto; overflow-y: hidden; }
+.zeus-method-stage { width: 100%; min-width: 800px; }
+#fig2-svg { display: block; width: 100%; height: auto; }
+.zeus-svg-math { font: 20px Cambria, "Times New Roman", serif; transition: opacity .8s ease; }
+.zeus-mobile-hint { display: none; font-size: .85em; color: #666; }
+.results-block { margin-top: 1.8em; }
+.results-block h3 { font-size: 1.2em; font-weight: 700; margin-bottom: .6em; }
+.results-details { margin-top: .8em; }
+.results-details > summary { cursor: pointer; font-weight: 700; padding: .6em 0; color: #750014; }
+.table-scroll { width: 100%; overflow-x: auto; margin: .8em 0 1.2em; }
+.results-table { border-collapse: collapse; width: 100%; white-space: nowrap; font-size: .8em; font-variant-numeric: tabular-nums; text-align: right; }
+.results-table caption { white-space: normal; text-align: left; font-size: .95em; margin-bottom: .8em; }
+.results-table th, .results-table td { border-bottom: 1px solid #ddd; padding: .6em .7em; }
+.results-table th:first-child, .results-table td:first-child, .results-table tbody th { text-align: left; }
+.results-table tbody th { font-weight: normal; }
+.results-table thead th { border-top: 2px solid #333; border-bottom: 1px solid #333; }
+.results-table tbody + tbody tr:first-child > * { border-top: 1px solid #999; }
+.results-table .ours { background: #f7f1f2; }
+.results-table .ours th { color: #750014; font-weight: 700; }
+.results-table u { text-underline-offset: 3px; }
+#BibTeX pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 768px) {
+  .card { position: static; flex-direction: row; width: auto; transform: none; justify-content: center; padding: 12px; gap: 16px; }
+  .card .social-icons { width: 44px; height: 44px; }
+  .card .social-icons > p { display: none; }
+  .hero-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .section { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .publication-title { font-size: 1.7rem !important; }
+  .publication-authors { font-size: 1rem !important; }
+  .duke-logo { height: 48px; }
+  [style*="width: 800px"] { max-width: 100%; }
+  .zeus-mobile-hint { display: block; }
+  .scene { overflow-x: auto; }
+  .scene .row { justify-content: flex-start; width: max-content; }
+  .scene .row img { flex: 0 0 100px; max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .zeus-svg-math, .blue-arrow, .model-red, .row img, .zeus-result-figures img { transition: none !important; }
+}

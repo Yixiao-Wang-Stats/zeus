@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
-<meta property='og:title' content='Real-Time Video Generation with Pyramid Attention Broadcast' />
-<meta property='og:description' content='Real-Time Video Generation with Pyramid Attention Broadcast' />
-<meta property='og:url' content='https://oahzxl.github.io/PAB/' />
+<html lang="en">
+<meta property='og:title' content='ZEUS: Accelerating Diffusion Models with Only Second-Order Predictor' />
+<meta property='og:description' content='ZEUS: Accelerating Diffusion Models with Only Second-Order Predictor' />
+<meta property='og:url' content='https://yixiao-wang-stats.github.io/zeus/' />
 <meta property='og:image:width' content='1200' />
 <meta property='og:image:height' content='663' />
 <!-- TYPE BELOW IS PROBABLY: 'website' or 'article' or look on https://ogp.me/#types -->
@@ -10,10 +10,10 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Real-Time Video Generation with Pyramid Attention Broadcast">
-  <meta name="keywords" content="Real-Time Video Generation with Pyramid Attention Broadcast">
+  <meta name="description" content="ZEUS: Accelerating Diffusion Models with Only Second-Order Predictor">
+  <meta name="keywords" content="ZEUS: Accelerating Diffusion Models with Only Second-Order Predictor">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ZEUS: Zero-shot Efficient Unified Sparsity for Generative Models</title>
+  <title>ZEUS: Accelerating Diffusion Models with Only Second-Order Predictor</title>
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./juxtapose/css/button.css">
@@ -24,7 +24,6 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
   <link rel="stylesheet" href="juxtapose/css/juxtapose.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
@@ -36,9 +35,6 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-  <script src="./static/js/magnifier.js"></script>
-  <script src="./static/js/particles.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/image_card_fader.css">
   <link rel="stylesheet" href="./static/css/image_card_slider.css">
@@ -47,8 +43,6 @@
   <link rel="icon" href="./static/images/zeus.png" type="image/x-icon">
   <link rel="shortcut icon" href="./static/images/zeus.png" type="image/x-icon">
   <link rel="preload" as="image" href="./static/images/zeus.png">
-  <link rel="preload" as="audio" href="./static/audios/thunder.mp3">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -414,47 +408,19 @@
 
 
 
-<body>
-  <!-- ========== ZEUS 开场动画（一屏） ========== -->
-  <section id="zeus-splash" aria-label="ZEUS intro" class="shake">
-    <canvas id="snow"></canvas>
+<body id="top">
 
-    <div class="content">
-      <img id="intro-logo" src="./static/images/zeus.png" alt="ZEUS logo">
-      <h1 id="intro-title">ZEUS: Zero‑shot Efficient Unified Sparsity<br><span style="font-weight:700">for Generative
-          Models</span></h1>
-      <div id="intro-subtitle">Training‑free acceleration • One‑line integration</div>
-    </div>
-
-    <!-- 闪电：上粗下细 + 红->黑 -->
-    <svg id="lightning" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <!-- 纵向颜色渐变（红 -> 深红 -> 黑） -->
-        <linearGradient id="boltGrad" x1="50" y1="-10" x2="50" y2="110" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#ffffff" />
-          <stop offset="65%" stop-color="#ffffff" />
-          <stop offset="100%" stop-color="#ffffff" />
-        </linearGradient>
-      </defs>
-
-      <!-- 发光外沿 -->
-      <polyline class="glow" mask="url(#taperMask)"
-        points="50,-8  49,8  56,16  46,26  59,38  52,50  63,62  54,74  66,86  58,100" />
-      <!-- 主干 -->
-      <polyline class="core" mask="url(#taperMask)"
-        points="50,-8  49,8  56,16  46,26  59,38  52,50  63,62  54,74  66,86  58,100" />
-    </svg>
-
-    <!-- 屏闪 -->
-    <!-- <div class="flash"></div -->
-
-    <!-- 雷声（可选） -->
-    <audio id="thunder" preload="auto" src="./static/audios/thunder.mp3"></audio>
-  </section>
 
 
   <div class="card">
-    <a class="social-icons" href="#images">
+    <a class="social-icons" href="#top" aria-label="Back to top" title="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 4 3 13l1.4 1.4L11 7.8V21h2V7.8l6.6 6.6L21 13z" />
+      </svg>
+      <p>Back to top</p>
+    </a>
+
+    <a class="social-icons" href="#images" aria-label="Image examples">
       <!-- 图像 -->
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
         <path
@@ -463,7 +429,7 @@
       <p>Image Demo</p>
     </a>
 
-    <a class="social-icons" href="#videos">
+    <a class="social-icons" href="#videos" aria-label="Video results">
       <!-- 视频 -->
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
         <path d="M17 10.5V7c0-1.1-.9-2-2-2H5C3.9 5 3 5.9 3 7v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-3.5l4 4v-11l-4 4z" />
@@ -471,17 +437,9 @@
       <p>Video Demo</p>
     </a>
 
-    <a class="social-icons" href="#audios">
-      <!-- 音频 -->
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M9 3v10.55A4 4 0 1 0 11 17V7h8V3H9z" />
-      </svg>
-      <p>Audio Demo</p>
-    </a>
 
 
-
-    <a class="social-icons" href="#results">
+    <a class="social-icons" href="#results" aria-label="Quantitative results">
       <!-- 数值结果 -->
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
         <path d="M3 3h18v2H3V3zm0 16h18v2H3v-2zm0-8h18v2H3v-2z" />
@@ -489,10 +447,6 @@
       <p>Quantitative Results</p>
     </a>
   </div>
-
-
-
-  <div id="particles-js" style="position: fixed; width: 100%; height: 100%; z-index: -1;"></div>
 
   <section class="hero is-small has-zeus">
     <div class="hero-body">
@@ -505,19 +459,18 @@
               <svg xmlns="http://www.w3.org/2000/svg" style="width:1.2em;height:1.2em;vertical-align:middle;"
                 viewBox="0 0 24 24">
                 <defs>
-                  <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient id="zeus-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
                   </linearGradient>
                 </defs>
-                <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
+                <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient-1)" />
               </svg>
               <span
                 style="background: linear-gradient(to right, #dd1818, #333333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">ZEUS</span>:
               <span
-                style="background: linear-gradient(to right, #dd1818, #333333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">Zero-shot
-                Efficient Unified Sparsity</span>
-              for Generative Models
+                style="background: linear-gradient(to right, #dd1818, #333333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">Accelerating Diffusion Models</span>
+              with Only Second-Order Predictor
             </h1>
             <!-- 下面保持不变 -->
 
@@ -540,13 +493,14 @@
                 <a href="https://github.com/HankYe" target="_blank">Hancheng Ye</a><sup>1</sup>,&nbsp;
               </span>
               <span class="author-block"><a href="https://jingwei-sun.com/"
-                  target="_blank">Jingwei Sun</a><sup>1</sup>,&nbsp;</span>
+                  target="_blank">Jingwei Sun</a><sup>2</sup>,&nbsp;</span>
 
                <span class="author-block">
                 <a href="https://scholars.duke.edu/person/mingyuan.ma" target="_blank">Mingyuan Ma</a><sup>1</sup>,&nbsp;
               </span>
               
-               <span class="author-block"><a href="https://jayzhang42.github.io/" target="_blank">Jianyi Zhang</a><sup>1</sup>,&nbsp;</span>
+              <span class="author-block"><a href="https://wangqinsi1.github.io/" target="_blank" rel="noopener noreferrer">Qinsi Wang</a><sup>1</sup>,&nbsp;</span>
+               <span class="author-block"><a href="https://jayzhang42.github.io/" target="_blank">Jianyi Zhang</a><sup>3</sup>,&nbsp;</span>
               <span class="author-block">
                 <a href="https://ece.duke.edu/people/yiran-chen/" target="_blank">Yiran Chen</a><sup>1</sup>,&nbsp;
               </span>
@@ -558,6 +512,8 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup>Duke University&nbsp;</span>
+              <span class="author-block"><sup>2</sup>University of Florida&nbsp;</span>
+              <span class="author-block"><sup>3</sup>Google DeepMind&nbsp;</span>
               <img src="static/images/duke.png" alt="Duke Logo" class="duke-logo" aria-hidden="true"
                 role="presentation">
             </div>
@@ -576,12 +532,12 @@
               <svg xmlns="http://www.w3.org/2000/svg" style="width:1.2em;height:1.2em;vertical-align:middle;"
                 viewBox="0 0 24 24">
                 <defs>
-                  <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient id="zeus-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
                   </linearGradient>
                 </defs>
-                <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
+                <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient-2)" />
               </svg>
               <span style="
   background: linear-gradient(to right,  #dd1818,#333333);
@@ -592,9 +548,7 @@
               </span>
               plugs straight into any project built on HuggingFace Diffusers 🤗
             </div>
-            <!-- <div class="is-size-5 publication-venue">
-            in XXX
-          </div> -->
+            <div class="is-size-5 publication-venue">ACM Multimedia 2026 · Oral</div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
@@ -610,23 +564,11 @@
                 </span>
                 <!-- paper -->
                 <span class="link-block">
-                  <a class="external-link button is-normal is-rounded is-light" disabled
-                    style="pointer-events: none; opacity: 0.6;">
+                  <a href="https://arxiv.org/pdf/2604.01552" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
-                    <span>Paper (Coming Soon)</span>
-                  </a>
-                </span>
-
-                <!-- linkedin -->
-                <span class="link-block">
-                  <a class="external-link button is-normal is-rounded is-light" disabled
-                    style="pointer-events: none; opacity: 0.6;">
-                    <span class="icon">
-                      <i class="fab fa-linkedin"></i>
-                    </span>
-                    <span>LinkedIn (Coming Soon)</span>
+                    <span>Paper (arXiv)</span>
                   </a>
                 </span>
 
@@ -653,62 +595,22 @@
     <div class="hero-body">
       <div class="container is-max-desktop">
       <div class="content has-text-justified">
-        <p>
-          <b>
-            <span style="
-              background: linear-gradient(to right,  #dd1818,#333333);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              font-weight: bold;">
-              ZEUS
-            </span>: Lightning-Fast, Training-Free
-          </b> — <b>What does it minimally take to accelerate generative models—without training?</b> 
-          <span style="
-            background: linear-gradient(to right,  #dd1818,#333333);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;">
-            ZEUS
-          </span> shows that a tiny, <b>second-order finite-difference</b> extrapolator plus a 
-          <b>parity-aware reuse</b> schedule is enough. Skip denoiser calls, keep fidelity, and outrun training-free baselines. 
-          <b>{Any modality. Any model. Any scheduler.}</b>
-        </p>
+        <p><b>ZEUS</b> adds essentially zero overhead, no feature caches, and no architectural modifications, and it is compatible with different backbones, prediction objectives, and solver choices.</p>
       </div>
     </div>
 
 
 
       <div class="has-text-centered" style="margin-top:2em;">
-        <div style="width: 800px; margin: auto;">
-          <div id="main" style="height: 500px;"></div>
-          <p id="figure1-caption" style="font-size:0.95em; margin-top:0.5em; text-align: left;">
-            <i><b>Figure 1.</b> Results on <b>Flux</b>. <b><span style="color:#750014;">Burgundy</span></b> in the figure denotes the 
-<span style="
-  background: linear-gradient(to right,  #dd1818,#333333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;">
-  ZEUS
-</span> curve.
-
-              <span style="
-    background: linear-gradient(to right,  #dd1818,#333333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;">
-                ZEUS
-              </span> exhibits near-linear efficiency-fidelity scaling controlled by sparsity pattern. Under the same
-              acceleration ratio, <span style="
-    background: linear-gradient(to right,  #dd1818,#333333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;">
-                ZEUS
-              </span> achieves signifiacnt better faithfulness compared to previous strategies, measured in LPIPS (e.g.,
-              2.2×/0.05 lpips vs. TeaCache (2.0×/0.22 lpips); 3.6×/0.22 lpips vs. TaylorSeer (3.2×/0.42 lpips)).</i>
-          </p>
+        <div style="width: 800px; max-width:100%; margin:auto;">
+          <div class="columns is-centered zeus-result-figures">
+            <figure class="column"><a href="./new_results/FLUX_3.22_faster.png" target="_blank" rel="noopener noreferrer"><img src="./new_results/FLUX_3.22_faster.png" width="1015" height="712" alt="FLUX.1-dev speedup versus LPIPS: ZEUS-Medium 2.09×/0.047; Fast 2.47×/0.079; Turbo 3.22×/0.171."></a><p><b>FLUX.1-dev</b></p></figure>
+            <figure class="column"><a href="./new_results/Wan2.1_2.24_faster.png" target="_blank" rel="noopener noreferrer"><img src="./new_results/Wan2.1_2.24_faster.png" width="1024" height="718" alt="Wan 2.1 speedup versus LPIPS: ZEUS 1.76×/0.117; ZEUS-Fast 2.24×/0.179."></a><p><b>Wan 2.1</b></p></figure>
+          </div>
+          <p id="figure1-caption" style="font-size:0.95em; margin-top:0.5em; text-align:left;"><i><b>Figure 1.</b> Speed–fidelity results on FLUX.1-dev and Wan 2.1. Higher speedup and lower LPIPS are better. ZEUS reaches 3.22× speedup on FLUX.1-dev and 2.24× on Wan 2.1.</i></p>
         </div>
       </div>
+    </div>
   </section>
 
   <section class="section" id="introduction">
@@ -721,49 +623,9 @@
             ZEUS
           </span></h2>
       <div class="content">
-        <p>
-          Meet <span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span>&mdash;<em>Zero-shot Efficient Unified Sparsity for Generative Models</em>&mdash;our latest library
-          that accelerate generative models with a groundbreaking end-to-end performance.
-          <span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span> offers a controllable efficiency&ndash;fidelity trade-off via tuning an inference-time sparsity ratio.
-          Under a simple, principled design,
-          <span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span> combines (i) zero-compute bypassing of the denoiser, (ii) second-order interpolation of the model
-          output
-          <span class="math">$\psi$</span> (theoretically equivalent across common prediction objectives), and (iii) a
-          zigzag-style retrieval schedule&mdash;the &ldquo;<span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span> pattern.&rdquo;
-          Across architectures, solvers, and modalities,
-          <span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span> consistently surpasses prior state of the art, making it a practical path toward faster, faithful
-          generation.
-        </p>
+<p>Denoising generative models deliver high-fidelity generation but remain bottlenecked by inference latency due to the many iterative denoiser calls required during sampling. Training-free acceleration methods reduce latency by either sparsifying the model architecture or shortening the sampling trajectory. Current training-free acceleration methods are more complex than necessary: higher-order predictors amplify error under aggressive speedups, and architectural modifications hinder deployment.</p>
+          <p>Beyond 2x acceleration, step skipping creates structural scarcity—at most one fresh evaluation per local window—leaving the computed output and its backward difference as the only causally grounded information. Based on this, we propose <strong>ZEUS</strong>, an acceleration method that predicts reduced denoiser evaluations using a second-order predictor, and stabilizes aggressive consecutive skipping with an interleaved scheme that avoids back-to-back extrapolations.</p>
+          <p>ZEUS adds essentially zero overhead, no feature caches, and no architectural modifications, and it is compatible with different backbones, prediction objectives, and solver choices. Across image and video generation, ZEUS consistently improves the speed–fidelity performance over recent training-free baselines, achieving up to 3.2x end-to-end speedup while maintaining perceptual quality. The code is publicly available at <a href="https://github.com/Ting-Justin-Jiang/ZEUS" target="_blank" rel="noopener noreferrer">github.com/Ting-Justin-Jiang/ZEUS</a>.</p>
       </div>
     </div>
   </section>
@@ -783,82 +645,19 @@
       </h2>
 
       <div class="content">
-        <p>
-          In probability-flow ODE sampling, we asked a simple question: what happens to the denoiser’s prediction
-          <span class="math">$\psi$</span> from one reverse-time step to the next?
-          The answer <strong><em>drew a lightning bolt</em></strong>.
-        </p>
-
-        <p>
-          As sampling marches, the network’s outputs <span class="math">$\psi_t$</span> (i.e.,
-          <span class="math">$\epsilon$</span>, <span class="math">$v$</span>, <span class="math">$x_0$</span>, or flow)
-          do not gently align.
-          Empirically and theoretically, we find a <strong>anti-correlation</strong> between neighbors:
-        </p>
-
-        <p class="math" style="text-align: center;">
-          $\langle \psi_t,\ \psi_{t-1} \rangle &lt; 0$
-        </p>
-
-        <p>
-          while predictions two steps apart tend to <strong>realign</strong>:
-        </p>
-
-        <p class="math" style="text-align: center;">
-          $\langle \psi_t,\ \psi_{t-2} \rangle &gt; 0$
-        </p>
-
-        <p>
-          This alternating geometry forms a crisp zig-zag—the
-          <span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span> pattern.
-        </p>
-
-        <p>
-          <span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span> turns this pattern into acceleration, as shown in Figure 2.
-          <span style="
-          background: linear-gradient(to right,  #dd1818,#333333);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;">
-            ZEUS
-          </span> uses a <em>minimal second-order finite-difference predictor</em> to achieve principled approximation
-          and a <em>reuse schedule</em> to prevent overshooting:
-        </p>
-
-        <p class="math" style="text-align: center;">
-          $\hat{\psi}_{t-1}\ \leftarrow\ 2\,\psi_t - \psi_{t+1}\quad\text{(extrapolate first)},\qquad
-          \hat{\psi}_{t-2}\ \leftarrow\ \psi_t\quad\text{(reuse then)}.$
-        </p>
+        <p>At step $t$, the denoiser has computed $\psi_t$. The backward difference $\Delta^{(1)}\psi_t = \psi_t - \hat{\psi}_{t+1}$ encodes information that $\psi_t$ alone cannot provide—the response of the denoiser to the given (approximated) state. Together, the pair constitutes the <b>observed information set</b>, available at zero marginal cost.</p>
+        <p>Given the observed information set, we can add the elements together, which forms a second-order predictor:</p>
+        <p class="math" style="text-align:center;">$\hat{\psi}_{t-1} = \psi_t + \Delta^{(1)}\psi_t = 2\psi_t - \hat{\psi}_{t+1}.$</p>
+        <p>Rather than computing new approximations, we simply cycle between the full evaluation and its second-order extrapolation. This interleaved pattern applies the second-order predictor once (at $j=1$), then resets to $\psi_t$, then reuses the same pair—never chaining predictions.</p>
       </div>
 
 
       <figure style="text-align: center; margin-top: 1.5em;">
-        <img src="static/images/zeus pattern.png" alt="ZEUS pattern illustration"
+        <img src="static/media/approximation-schemes.webp" alt="Paper comparison of reuse-only, predictor-only, and ZEUS observed-information reuse"
           style="max-width: 100%; height: auto;">
         <div class="has-text-centered" style="margin-top:1em;">
           <div style="width: 800px; margin: auto;">
-            <p id="figure2-caption" style="font-size:0.95em; margin-top:0.5em; text-align: left;">
-              <i><b>Figure 2.</b> Illustration of the reuse schedule. The purple curve shows the true stochastic
-                trajectory
-                <span class="math">$\psi^*$</span>; the green segments show the model‐computed <span
-                  class="math">$\psi_t$</span> values; and the blue segments depict the second‐order extrapolation used
-                to estimate <span class="math">$\psi_{t-1}$</span> when skipping a step.
-                <b>Left:</b> Naive Interpolation overshoots because <span class="math">$\psi_t$</span> fluctuates
-                between timesteps.
-                <b>Right:</b> Cache reuse prevents overshoot by reusing <span class="math">$\psi_t$</span>.</i>
-            </p>
+            <p id="figure2-caption" style="font-size:0.95em; margin-top:0.5em; text-align: left;"><i><b>Figure 2.</b> Three approximation schemes from the camera-ready paper. <b>Left:</b> Reuse-only is stable but loses fine detail. <b>Middle:</b> Chaining second-order predictions overshoots. <b>Right:</b> ZEUS alternates reuse of the observed information pair to prevent overshoot and preserve detail.</i></p>
           </div>
         </div>
 
@@ -881,25 +680,17 @@
           </span> Fly</h2>
 
       <div class="content">
-        <p>
-  Motivated by this observation, 
-  <span style="
-    background: linear-gradient(to right,  #dd1818,#333333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;">
-    ZEUS
-  </span> extrapolates <span class="math">$\psi_t$</span> with a bounded second-order finite-difference predictor and applies a parity-aware reuse schedule that exploits adjacent anti-alignment, as shown in Figure&nbsp;3.
-</p>
+        <p>ZEUS uses a second-order numerical predictor that extrapolates the next denoiser output from the observed information set at the most recent full-evaluation step. Its interleaved scheme reuses the same pair across consecutive reduced steps, as shown in Figure 3.</p>
       </div>
       <div style="text-align:center; margin-top:5px;">
         <button id="replay-btn-mainplot"><span>Replay Animation</span></button>
       </div>
 
-      <div style="position:relative; height:320px;">
+      <div class="zeus-method-scroll" tabindex="0" role="region" aria-label="ZEUS method animation; scroll horizontally on small screens">
+      <div class="zeus-method-stage">
 
 
-        <svg id="fig2-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+        <svg id="fig2-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-label="Original ZEUS bypass, prediction and reuse animation">
           <defs>
             <!-- 深蓝箭头 -->
             <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"
@@ -1005,31 +796,33 @@
               orient="auto-start-reverse">
               <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
             </marker>
-            <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"
+            <marker id="arrow-blue-secondary" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"
               orient="auto-start-reverse">
               <path d="M 0 0 L 10 5 L 0 10 z" fill="#3a3a75" />
             </marker>
           </defs>
-        </svg>
+        <text class="zeus-svg-math" x="120" y="56">xₜ</text>
+<text class="zeus-svg-math" x="315" y="56">xₜ₋₁</text>
+<text class="zeus-svg-math" x="510" y="56">xₜ₋₂</text>
+<text class="zeus-svg-math" x="144" y="165">ψₜ</text>
+<text id="psi-prev" class="zeus-svg-math" x="339" y="165">ψₜ₋₁</text>
+<text id="psi-prev2" class="zeus-svg-math" x="534" y="165">ψₜ₋₂</text>
+<text id="psi-hat" class="zeus-svg-math hidden" x="339" y="165">ψ̂ₜ₋₁</text>
+<text id="psi-hat-reuse" class="zeus-svg-math hidden" x="745" y="180">ψ̂ₜ₋₃</text>
+<text id="psi-hat2" class="zeus-svg-math hidden" x="534" y="165">ψ̂ₜ₋₂</text>
+<text id="psi-formula" class="zeus-svg-math hidden" x="220" y="295">2ψₜ − ψ̂ₜ₊₁</text>
+<text id="psi-formula2" class="zeus-svg-math hidden" x="440" y="125">ψₜ</text>
+</svg>
 
-        <!-- 公式 -->
-        <div class="formula" style="left:163px; top:43px;">$x_t$</div>
-        <div class="formula" style="left:385px; top:43px;">$x_{t-1}$</div>
-        <div class="formula" style="left:620px; top:43px;">$x_{t-2}$</div>
-        <div class="formula" style="left:175px; top:174px;">$\psi_t$</div>
-        <div id="psi-prev" class="formula visible" style="left:403px; top:174px;">$\psi_{t-1}$</div>
-        <div id="psi-prev2" class="formula visible" style="left:638px; top:174px;">$\psi_{t-2}$</div>
-        <div id="psi-hat" class="formula hidden" style="left:403px; top:174px;">$\hat{\psi}_{t-1}$</div>
-        <div id="psi-hat-reuse" class="formula hidden" style="left:775px; top:192px;">$\hat{\psi}_{t-1}$</div>
-        <div id="psi-hat2" class="formula hidden" style="left:638px; top:174px;">$\hat{\psi}_{t-2}$</div>
-        <div id="psi-formula" class="formula hidden" style="left:260px; top:223px;">$2\psi_t - \psi_{t+1}$</div>
-        <div id="psi-formula2" class="formula hidden" style="left:550px; top:140px;">$\psi_t$</div>
       </div>
+      </div>
+      <p class="zeus-mobile-hint">Swipe horizontally to view the full animation.</p>
+
 
 
       <div class="has-text-centered" style="margin-top:2em;">
         <div style="width: 800px; margin: auto;">
-          <p id="figure2-caption" style="font-size:0.95em; margin-top:0.5em; text-align: left;">
+          <p id="figure3-caption" style="font-size:0.95em; margin-top:0.5em; text-align: left;">
             <i><b>Figure 3.</b> Overview paradigm of <span style="
   background: linear-gradient(to right,  #dd1818,#333333);
   -webkit-background-clip: text;
@@ -1040,7 +833,9 @@
           </p>
         </div>
 
-  </section>
+        </div>
+      </div>
+</section>
 
 
 
@@ -1050,26 +845,11 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Evaluations</h2>
           <p>
-            We evaluate the end-to-end performance of ZEUS on a single A100 GPU. 
-Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff.
+            All experiments use official checkpoints, HuggingFace Diffusers, FP16 precision, and 50 sampling steps unless otherwise noted. All runs are performed on a single NVIDIA A100-80GB GPU. We report end-to-end wall-clock speed up.
           </p>
           <h2 class="title is-4" id="images" style="margin-top: 1.5em;">Images</h2>
           <div class="content has-text-justified">
-            <p>
-              <span style="
-                background: linear-gradient(to right,  #dd1818,#333333);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                font-weight: bold;">
-                ZEUS
-              </span> — As the sparsity increases from <strong>Original → Turbo</strong>, we yield
-              <strong>near-linear speedups</strong>:
-              <strong>1.00× (Original)</strong>,
-              <strong>1.92× (Balanced)</strong>,
-              <strong>2.25× (Medium)</strong>,
-              <strong>2.91× (Fast)</strong>, and
-              <strong>3.64× (Turbo)</strong>.
-            </p>
+            <p>The original qualitative examples are shown below. Their preset labels refer to this demonstration; measured camera-ready speedups and metrics are reported in the quantitative results below. Playback timing is illustrative.</p>
           </div>
 
 
@@ -1079,77 +859,77 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
 
           <div class="scene" data-speed="1">
             <div class="row">
-              <img src="static/images/mc/1.png">
-              <img src="static/images/glass/1.png">
-              <img src="static/images/snow/1.png">
-              <img src="static/images/boat/1.png">
-              <img src="static/images/girl/1.png">
-              <img src="static/images/home/1.png">
-              <img src="static/images/car/1.png">
-              <img src="static/images/sheep/1.png">
-              <img src="static/images/dog/1.png">
+              <img src="static/images/mc/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/glass/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/snow/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/boat/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/girl/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/home/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/car/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/sheep/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
+              <img src="static/images/dog/1.png" alt="Qualitative example, demonstration 1" loading="lazy">
             </div>
-            <p>Original (1.0x)</p>
+            <p>Original</p>
           </div>
 
           <div class="scene" data-speed="1.92">
             <div class="row">
-              <img src="static/images/mc/2.png">
-              <img src="static/images/glass/2.png">
-              <img src="static/images/snow/2.png">
-              <img src="static/images/boat/2.png">
-              <img src="static/images/girl/2.png">
-              <img src="static/images/home/2.png">
-              <img src="static/images/car/2.png">
-              <img src="static/images/sheep/2.png">
-              <img src="static/images/dog/2.png">
+              <img src="static/images/mc/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/glass/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/snow/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/boat/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/girl/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/home/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/car/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/sheep/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
+              <img src="static/images/dog/2.png" alt="Qualitative example, demonstration 2" loading="lazy">
             </div>
-            <p>Balanced (1.92x)</p>
+            <p>Balanced</p>
           </div>
 
           <div class="scene" data-speed="2.25">
             <div class="row">
-              <img src="static/images/mc/3.png">
-              <img src="static/images/glass/3.png">
-              <img src="static/images/snow/3.png">
-              <img src="static/images/boat/3.png">
-              <img src="static/images/girl/3.png">
-              <img src="static/images/home/3.png">
-              <img src="static/images/car/3.png">
-              <img src="static/images/sheep/3.png">
-              <img src="static/images/dog/3.png">
+              <img src="static/images/mc/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/glass/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/snow/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/boat/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/girl/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/home/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/car/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/sheep/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
+              <img src="static/images/dog/3.png" alt="Qualitative example, demonstration 3" loading="lazy">
             </div>
-            <p>Medium (2.25x)</p>
+            <p>Medium</p>
           </div>
 
           <div class="scene" data-speed="2.91">
             <div class="row">
-              <img src="static/images/mc/4.png">
-              <img src="static/images/glass/4.png">
-              <img src="static/images/snow/4.png">
-              <img src="static/images/boat/4.png">
-              <img src="static/images/girl/4.png">
-              <img src="static/images/home/4.png">
-              <img src="static/images/car/4.png">
-              <img src="static/images/sheep/4.png">
-              <img src="static/images/dog/4.png">
+              <img src="static/images/mc/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/glass/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/snow/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/boat/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/girl/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/home/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/car/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/sheep/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
+              <img src="static/images/dog/4.png" alt="Qualitative example, demonstration 4" loading="lazy">
             </div>
-            <p>Fast (2.91x)</p>
+            <p>Fast</p>
           </div>
 
           <div class="scene" data-speed="3.64">
             <div class="row">
-              <img src="static/images/mc/5.png">
-              <img src="static/images/glass/5.png">
-              <img src="static/images/snow/5.png">
-              <img src="static/images/boat/5.png">
-              <img src="static/images/girl/5.png">
-              <img src="static/images/home/5.png">
-              <img src="static/images/car/5.png">
-              <img src="static/images/sheep/5.png">
-              <img src="static/images/dog/5.png">
+              <img src="static/images/mc/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/glass/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/snow/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/boat/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/girl/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/home/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/car/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/sheep/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
+              <img src="static/images/dog/5.png" alt="Qualitative example, demonstration 5" loading="lazy">
             </div>
-            <p>Turbo (3.64x)</p>
+            <p>Turbo</p>
           </div>
 
           <style>
@@ -1166,7 +946,7 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
 
             .row img {
               width: 100px;
-              opacity: 0;
+              opacity: 1;
               transition: opacity 0.5s ease-in;
               border-radius: 5px;
               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -1188,6 +968,11 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
               /* 1️⃣  cancel anything still pending from a previous run */
               timers.forEach(id => clearTimeout(id));
               timers = [];
+
+              if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelectorAll('.scene img').forEach(img => { img.style.opacity = 1; });
+                return;
+              }
 
               /* 2️⃣  reset state and launch a fresh set of timers */
               document.querySelectorAll('.scene').forEach(scene => {
@@ -1232,43 +1017,8 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
         <div class="column is-full-width">
           <div class="content has-text-justified">
             <h2 class="title is-4" id="videos">Videos</h2>
-            <div class="content has-text-centered" style="margin-top: 2em;">
-              <span style="
-            display: inline-block;
-            padding: 1em 2.5em;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            font-size: 1.8em;
-            font-weight: bold;
-            background: linear-gradient(90deg, #dd1818, #333333);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(221,24,24,0.5), 0 0 25px rgba(51,51,51,0.4);
-            animation: pulseGlow 2s infinite;
-          ">
-                <svg xmlns="http://www.w3.org/2000/svg" style="width:1.2em;height:1.2em;vertical-align:middle;"
-                  viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
-                </svg> Coming Soon <svg xmlns="http://www.w3.org/2000/svg"
-                  style="width:1.2em;height:1.2em;vertical-align:middle;" viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
-                </svg>
-              </span>
-            </div>
+            <p>The same model-agnostic policy transfers to T2V: on both Wan 2.1 and CogVideoX-v1.5, ZEUS establishes a new quality–efficiency frontier without introducing video-specific kernels or modifying the backbone.</p>
+            <p>On Wan 2.1, ZEUS achieves 29.00 PSNR and 0.117 LPIPS at 1.76× speedup; ZEUS-Fast reaches 2.24×. On CogVideoX-v1.5, ZEUS achieves 32.50 PSNR and 0.060 LPIPS at 1.71×; ZEUS-Fast reaches 2.00×. <a href="#video-results">See the complete video results below.</a></p>
           </div>
         </div>
       </div>
@@ -1297,96 +1047,179 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
       <div class="columns is-centered">
         <div class="column is-full-width">
           <div class="content has-text-justified">
-            <h2 class="title is-4" id="audios">Audios</h2>
-            <div class="content has-text-centered" style="margin-top: 2em;">
-              <span style="
-            display: inline-block;
-            padding: 1em 2.5em;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            font-size: 1.8em;
-            font-weight: bold;
-            background: linear-gradient(90deg, #dd1818, #333333);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(221,24,24,0.5), 0 0 25px rgba(51,51,51,0.4);
-            animation: pulseGlow 2s infinite;
-          ">
-                <svg xmlns="http://www.w3.org/2000/svg" style="width:1.2em;height:1.2em;vertical-align:middle;"
-                  viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
-                </svg> Coming Soon <svg xmlns="http://www.w3.org/2000/svg"
-                  style="width:1.2em;height:1.2em;vertical-align:middle;" viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+            <h2 class="title is-4" id="results">Quantitative Results</h2>
+            <p>Image evaluation uses 5,000 MSCOCO-2017 validation prompts; video evaluation uses Penguin Benchmark prompts optimized as provided by the VBench team. Video baseline numbers follow the reported SVG-series setup. Similarity metrics compare accelerated samples with full evaluation; video metrics are frame-averaged.</p>
+            <p>ZEUS approximates the middle 70% of the trajectory, keeping the first 20% and last 10% as full evaluations. The main image presets Medium / Fast / Turbo use r = 2 / 3 / 4 consecutive reduced steps. Swipe within a table on small screens to see every metric.</p>
+            <!-- RESULTS:START -->
+<!-- Quantitative results transcribed from the uncommented, included camera-ready LaTeX tables.
+     This fragment is embedded inline in index.html; it does not fetch paper sources at runtime. -->
+<div class="results-block" id="image-results">
+  <h3>Image generation</h3>
+  <p>Image quality vs. speed on SD-2, SDXL, and FLUX. Higher is better for PSNR and speedup; lower is better for LPIPS and FID.</p>
+  <details class="results-details" open>
+    <summary>Full image results</summary>
+    <div class="table-scroll" role="region" aria-label="Image generation results, scroll horizontally for all metrics" tabindex="0">
+      <table class="results-table" data-source="tables/image_exp.tex">
+        <caption>Image quality vs. speed on SD-2, SDXL, and FLUX. Bold indicates best and underlined indicates second best within each model and scheduler block.</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Scheduler</th><th scope="col">Method</th><th scope="col">PSNR ↑</th><th scope="col">LPIPS ↓</th><th scope="col">FID ↓</th><th scope="col">Speedup ↑</th></tr></thead>
+        <tbody>
+          <tr><td>SD-2</td><td>DPM++</td><th scope="row">DeepCache</th><td>17.70</td><td>0.271</td><td>7.83</td><td>1.43×</td></tr>
+          <tr><td>SD-2</td><td>DPM++</td><th scope="row">AdaptiveDiffusion</th><td>24.30</td><td><u>0.100</u></td><td><u>4.35</u></td><td>1.45×</td></tr>
+          <tr><td>SD-2</td><td>DPM++</td><th scope="row">SADA</th><td><strong>26.34</strong></td><td><strong>0.094</strong></td><td><strong>4.02</strong></td><td><u>1.80×</u></td></tr>
+          <tr class="ours"><td>SD-2</td><td>DPM++</td><th scope="row">ZEUS-Medium</th><td><u>25.72</u></td><td>0.104</td><td>4.46</td><td><strong>1.85×</strong></td></tr>
+        </tbody>
+        <tbody>
+          <tr><td>SD-2</td><td>Euler</td><th scope="row">DeepCache</th><td>18.91</td><td>0.239</td><td>7.40</td><td>1.45×</td></tr>
+          <tr><td>SD-2</td><td>Euler</td><th scope="row">AdaptiveDiffusion</th><td>21.94</td><td>0.173</td><td>7.58</td><td><strong>1.89×</strong></td></tr>
+          <tr><td>SD-2</td><td>Euler</td><th scope="row">SADA</th><td><strong>26.25</strong></td><td><strong>0.100</strong></td><td><strong>4.26</strong></td><td>1.81×</td></tr>
+          <tr class="ours"><td>SD-2</td><td>Euler</td><th scope="row">ZEUS-Medium</th><td><u>25.37</u></td><td><u>0.118</u></td><td><u>5.06</u></td><td><u>1.86×</u></td></tr>
+        </tbody>
+        <tbody>
+          <tr><td>SDXL</td><td>DPM++</td><th scope="row">DeepCache</th><td>21.35</td><td>0.255</td><td>8.48</td><td>1.74×</td></tr>
+          <tr><td>SDXL</td><td>DPM++</td><th scope="row">AdaptiveDiffusion</th><td>26.16</td><td><u>0.125</u></td><td>4.59</td><td>1.65×</td></tr>
+          <tr><td>SDXL</td><td>DPM++</td><th scope="row">SADA</th><td><strong>29.36</strong></td><td><strong>0.084</strong></td><td><strong>3.51</strong></td><td>1.86×</td></tr>
+          <tr class="ours"><td>SDXL</td><td>DPM++</td><th scope="row">ZEUS-Medium</th><td><u>29.17</u></td><td><strong>0.084</strong></td><td><u>3.59</u></td><td><u>1.87×</u></td></tr>
+          <tr class="ours"><td>SDXL</td><td>DPM++</td><th scope="row">ZEUS-Fast</th><td>26.38</td><td>0.129</td><td>5.39</td><td><strong>1.93×</strong></td></tr>
+        </tbody>
+        <tbody>
+          <tr><td>SDXL</td><td>Euler</td><th scope="row">DeepCache</th><td>22.00</td><td>0.223</td><td>7.36</td><td><strong>2.16×</strong></td></tr>
+          <tr><td>SDXL</td><td>Euler</td><th scope="row">AdaptiveDiffusion</th><td>24.33</td><td>0.168</td><td>6.11</td><td><u>2.01×</u></td></tr>
+          <tr><td>SDXL</td><td>Euler</td><th scope="row">SADA</th><td><strong>28.97</strong></td><td><strong>0.093</strong></td><td><strong>3.76</strong></td><td>1.85×</td></tr>
+          <tr class="ours"><td>SDXL</td><td>Euler</td><th scope="row">ZEUS-Medium</th><td><u>28.66</u></td><td><u>0.095</u></td><td><u>3.87</u></td><td>1.85×</td></tr>
+          <tr class="ours"><td>SDXL</td><td>Euler</td><th scope="row">ZEUS-Fast</th><td>25.15</td><td>0.153</td><td>6.47</td><td>1.93×</td></tr>
+        </tbody>
+        <tbody>
+          <tr><td>FLUX</td><td>Euler (Flow)</td><th scope="row">TeaCache</th><td>19.14</td><td>0.216</td><td>4.89</td><td>2.00×</td></tr>
+          <tr><td>FLUX</td><td>Euler (Flow)</td><th scope="row">SADA</th><td><u>29.44</u></td><td><u>0.060</u></td><td><u>1.95</u></td><td>2.02×</td></tr>
+          <tr><td>FLUX</td><td>Euler (Flow)</td><th scope="row">ToCa</th><td>17.70</td><td>0.352</td><td>8.84</td><td>1.52×</td></tr>
+          <tr><td>FLUX</td><td>Euler (Flow)</td><th scope="row">TaylorSeer</th><td>15.36</td><td>0.430</td><td>10.08</td><td><u>3.13×</u></td></tr>
+          <tr><td>FLUX</td><td>Euler (Flow)</td><th scope="row">DiCache</th><td>22.39</td><td>0.270</td><td aria-label="Not reported">/</td><td><strong>3.22×</strong></td></tr>
+          <tr class="ours"><td>FLUX</td><td>Euler (Flow)</td><th scope="row">ZEUS-Medium</th><td><strong>30.19</strong></td><td><strong>0.047</strong></td><td><strong>1.53</strong></td><td>2.09×</td></tr>
+          <tr class="ours"><td>FLUX</td><td>Euler (Flow)</td><th scope="row">ZEUS-Fast</th><td>26.77</td><td>0.079</td><td>2.49</td><td>2.47×</td></tr>
+          <tr class="ours"><td>FLUX</td><td>Euler (Flow)</td><th scope="row">ZEUS-Turbo</th><td>21.80</td><td>0.171</td><td>4.52</td><td><strong>3.22×</strong></td></tr>
+        </tbody>
+      </table>
     </div>
+  </details>
+</div>
 
+<div class="results-block" id="video-results">
+  <h3>Video generation</h3>
+  <p>The same model-agnostic policy transfers to T2V: on both Wan 2.1 and CogVideoX-v1.5, ZEUS establishes a new quality–efficiency frontier without introducing video-specific kernels or modifying the backbone.</p>
+  <details class="results-details" open>
+    <summary>Full video results</summary>
+    <div class="table-scroll" role="region" aria-label="Video generation results, scroll horizontally for all metrics" tabindex="0">
+      <table class="results-table" data-source="tables/video_exp.tex">
+        <caption>Quality &amp; efficiency on video generation. Higher is better for PSNR, SSIM, and speedup; lower is better for LPIPS. Bold indicates best and underlined indicates second best within each model.</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Method</th><th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th><th scope="col">Speedup ↑</th></tr></thead>
+        <tbody>
+          <tr><td>Wan 2.1</td><th scope="row">SpargeAttn</th><td>20.52</td><td>0.623</td><td>0.343</td><td>1.44×</td></tr>
+          <tr><td>Wan 2.1</td><th scope="row">SVG</th><td>22.99</td><td>0.785</td><td>0.199</td><td>1.58×</td></tr>
+          <tr><td>Wan 2.1</td><th scope="row">SVG2</th><td><u>25.81</u></td><td><strong>0.854</strong></td><td><u>0.138</u></td><td>1.58×</td></tr>
+          <tr><td>Wan 2.1</td><th scope="row">SVG2-Turbo</th><td>23.68</td><td>0.789</td><td>0.196</td><td><u>1.89×</u></td></tr>
+          <tr class="ours"><td>Wan 2.1</td><th scope="row">ZEUS (Ours)</th><td><strong>29.00</strong></td><td><u>0.846</u></td><td><strong>0.117</strong></td><td>1.76×</td></tr>
+          <tr class="ours"><td>Wan 2.1</td><th scope="row">ZEUS-Fast (Ours-Fast)</th><td>26.59</td><td>0.792</td><td>0.179</td><td><strong>2.24×</strong></td></tr>
+        </tbody>
+        <tbody>
+          <tr><td>CogVideoX-v1.5</td><th scope="row">DiTFastAttn</th><td>23.20</td><td>0.741</td><td>0.256</td><td>1.56×</td></tr>
+          <tr><td>CogVideoX-v1.5</td><th scope="row">Minference</th><td>22.45</td><td>0.691</td><td>0.304</td><td>1.48×</td></tr>
+          <tr><td>CogVideoX-v1.5</td><th scope="row">PAB</th><td>22.49</td><td>0.740</td><td>0.234</td><td>1.41×</td></tr>
+          <tr><td>CogVideoX-v1.5</td><th scope="row">SVG</th><td><u>29.99</u></td><td><strong>0.910</strong></td><td>0.112</td><td><strong>2.28×</strong></td></tr>
+          <tr class="ours"><td>CogVideoX-v1.5</td><th scope="row">ZEUS (Ours)</th><td><strong>32.50</strong></td><td><u>0.893</u></td><td><strong>0.060</strong></td><td>1.71×</td></tr>
+          <tr class="ours"><td>CogVideoX-v1.5</td><th scope="row">ZEUS-Fast (Ours-Fast)</th><td>30.97</td><td>0.876</td><td><u>0.073</u></td><td><u>2.00×</u></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
 
+<div class="results-block" id="additional-quality">
+  <h3>Generation quality beyond similarity</h3>
+  <p>For image generation with FLUX.1-dev, over 200 COCO prompts, ZEUS differs from the full-evaluation baseline by only 0.0004 CLIPScore and 0.0061 ImageReward while achieving a 2.09× end-to-end speedup.</p>
+  <details class="results-details">
+    <summary>CLIPScore, ImageReward, and VBench results</summary>
+    <div class="table-scroll" role="region" aria-label="FLUX generation-quality metrics" tabindex="0">
+      <table class="results-table" data-source="tables/additional_quality.tex" data-source-table="0">
+        <caption>FLUX.1-dev: 200 COCO prompts. Higher is better for CLIPScore, ImageReward, and speedup.</caption>
+        <thead><tr><th scope="col">Method</th><th scope="col">CLIPScore ↑</th><th scope="col">ImageReward ↑</th><th scope="col">Speedup ↑</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Full</th><td>0.3116</td><td>1.0991</td><td>1.00×</td></tr>
+          <tr><th scope="row">SADA</th><td>0.3113</td><td>1.0808</td><td>2.02×</td></tr>
+          <tr class="ours"><th scope="row">ZEUS</th><td>0.3112</td><td>1.0930</td><td>2.09×</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-scroll" role="region" aria-label="Wan2.1 VBench-24 quality metrics" tabindex="0">
+      <table class="results-table" data-source="tables/additional_quality.tex" data-source-table="1">
+        <caption>Wan2.1-14B: balanced VBench-24 subset, with eight prompts each for subject consistency, motion smoothness, and temporal flickering. Higher is better.</caption>
+        <thead><tr><th scope="col">Method</th><th scope="col">Subject ↑</th><th scope="col">Motion ↑</th><th scope="col">Flicker ↑</th><th scope="col">Imaging ↑</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Full</th><td>0.9619</td><td>0.9810</td><td>0.9737</td><td>0.6118</td></tr>
+          <tr class="ours"><th scope="row">ZEUS</th><td>0.9628</td><td>0.9820</td><td>0.9755</td><td>0.6008</td></tr>
+          <tr><th scope="row">Δ (ZEUS − Full)</th><td>+0.0009</td><td>+0.0010</td><td>+0.0018</td><td>−0.0110</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
 
+<div class="results-block" id="quantitative-ablations">
+  <h3>Ablation studies</h3>
+  <p>ZEUS is solver-agnostic: it operates on denoiser outputs and can be paired with numerical solvers of different orders.</p>
+  <details class="results-details">
+    <summary>Few-step sampling and higher-order solvers</summary>
+    <div class="table-scroll" role="region" aria-label="Few-step sampling ablation results" tabindex="0">
+      <table class="results-table" data-source="tables/ablation.tex">
+        <caption>Ablation study on few-step sampling across schedulers. Results on MS-COCO 2017.</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Scheduler</th><th scope="col">Steps</th><th scope="col">LPIPS ↓</th><th scope="col">FID ↓</th><th scope="col">Speedup ↑</th></tr></thead>
+        <tbody>
+          <tr><td>FLUX</td><th scope="row">Euler</th><td>50</td><td>0.047</td><td>1.53</td><td>2.09×</td></tr>
+          <tr><td>FLUX</td><th scope="row">Euler</th><td>25</td><td>0.040</td><td>2.65</td><td>1.58×</td></tr>
+          <tr><td>FLUX</td><th scope="row">Euler</th><td>15</td><td>0.036</td><td>2.47</td><td>1.22×</td></tr>
+        </tbody>
+        <tbody>
+          <tr><td>SDXL</td><th scope="row">Euler</th><td>50</td><td>0.095</td><td>3.87</td><td>1.85×</td></tr>
+          <tr><td>SDXL</td><th scope="row">Euler</th><td>25</td><td>0.064</td><td>4.98</td><td>1.46×</td></tr>
+          <tr><td>SDXL</td><th scope="row">Euler</th><td>15</td><td>0.065</td><td>4.72</td><td>1.20×</td></tr>
+        </tbody>
+        <tbody>
+          <tr><td>SDXL</td><th scope="row">DPM++</th><td>50</td><td>0.084</td><td>3.59</td><td>1.87×</td></tr>
+          <tr><td>SDXL</td><th scope="row">DPM++</th><td>25</td><td>0.066</td><td>5.28</td><td>1.45×</td></tr>
+          <tr><td>SDXL</td><th scope="row">DPM++</th><td>15</td><td>0.066</td><td>4.87</td><td>1.20×</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-scroll" role="region" aria-label="Higher-order solver ablation results" tabindex="0">
+      <table class="results-table" data-source="tables/rebuttal/higher_order_solver_ablate.tex">
+        <caption>Ablation on higher-order solvers.</caption>
+        <thead><tr><th scope="col">Solver</th><th scope="col">PSNR ↑</th><th scope="col">LPIPS ↓</th><th scope="col">FID ↓</th><th scope="col">Speedup ↑</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Euler-1</th><td>28.66</td><td>0.095</td><td>3.87</td><td>1.85×</td></tr>
+          <tr><th scope="row">DPM++-2</th><td>29.17</td><td>0.084</td><td>3.59</td><td>1.87×</td></tr>
+          <tr><th scope="row">DPM++-3</th><td>29.05</td><td>0.079</td><td>3.28</td><td>1.88×</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
 
-
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <div class="content has-text-justified">
-            <h2 class="title is-4" id="results">Quantitive Results</h2>
-
-            <div class="content has-text-centered" style="margin-top: 2em;">
-              <span style="
-            display: inline-block;
-            padding: 1em 2.5em;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            font-size: 1.8em;
-            font-weight: bold;
-            background: linear-gradient(90deg, #dd1818, #333333);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(221,24,24,0.5), 0 0 25px rgba(51,51,51,0.4);
-            animation: pulseGlow 2s infinite;
-          ">
-                <svg xmlns="http://www.w3.org/2000/svg" style="width:1.2em;height:1.2em;vertical-align:middle;"
-                  viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
-                </svg> Coming Soon <svg xmlns="http://www.w3.org/2000/svg"
-                  style="width:1.2em;height:1.2em;vertical-align:middle;" viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="zeus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" style="stop-color:#dd1818;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M7 2v11h3v9l7-12h-4l4-8z" fill="url(#zeus-gradient)" />
-                </svg>
-              </span>
-            </div>
+<div class="results-block" id="memory-results">
+  <h3>Memory footprint on a larger backbone</h3>
+  <details class="results-details">
+    <summary>FLUX-2-dev (64B), 4-bit quantization</summary>
+    <div class="table-scroll" role="region" aria-label="FLUX-2-dev memory footprint ablation" tabindex="0">
+      <table class="results-table" data-source="tables/rebuttal/memory.tex">
+        <caption>Memory footprint ablation on FLUX-2-dev (64B) with 4-bit quantization. This is a separate model and quantization setting from the FLUX.1-dev main results.</caption>
+        <thead><tr><th scope="col">Setting</th><th scope="col">Speedup ↑</th><th scope="col">Peak memory (MB) ↓</th><th scope="col">PSNR ↑</th><th scope="col">SSIM ↑</th><th scope="col">LPIPS ↓</th></tr></thead>
+        <tbody>
+          <tr class="ours"><th scope="row">ZEUS (Medium)</th><td>2.07×</td><td>23370</td><td>31.593</td><td>0.938</td><td>0.029</td></tr>
+          <tr class="ours"><th scope="row">ZEUS (Turbo)</th><td>3.34×</td><td>23370</td><td>23.115</td><td>0.811</td><td>0.114</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
+<!-- RESULTS:END -->
           </div>
         </div>
       </div>
@@ -1399,15 +1232,13 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title"><a id="bibtex">BibTeX</a></h2>
-      <pre><code>@misc{zeus2025,
-  title        = {ZEUS: Zero-shot Efficient Unified Sparsity for Generative Models},
-  author       = {Yixiao Wang and Ting Jiang and Zishan Shao and Hancheng Ye and Jingwei Sun and Mingyuan Ma and Jianyi Zhang and Yiran Chen and Hai Li},
-  year         = {2025},
-  howpublished = {https://yixiao-wang-stats.github.io/zeus/},
-  note         = {Code and project page available at {https://github.com/Ting-Justin-Jiang/ZEUS}}
-}
-
-</code></pre>
+      <pre><code>@inproceedings{wang2026zeus,
+  title = {{ZEUS}: Accelerating Diffusion Models with Only Second-Order Predictor},
+  author = {Wang, Yixiao and Jiang, Ting and Shao, Zishan and Ye, Hancheng and Sun, Jingwei and Ma, Mingyuan and Wang, Qinsi and Zhang, Jianyi and Chen, Yiran and Li, Hai},
+  booktitle = {Proceedings of the 34th ACM International Conference on Multimedia},
+  year = {2026},
+  doi = {10.1145/3767308.3836067}
+}</code></pre>
     </div>
   </section>
 
@@ -1427,7 +1258,6 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
         </div>
       </div>
     </div>
-    </div>
   </footer>
 
 
@@ -1436,218 +1266,11 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-  <script>
-    let x1 = 0, y1 = 0;
-    const
-      dist_to_draw = 20,
-      delay = 1000,
-      fsize = ['1.1rem', '1.4rem', '.8rem', '1.7rem'],
-      colors = ['#E23636', '#F9F3EE', '#E1F8DC', '#B8AFE6', '#AEE1CD', '#5EB0E5'],
-      rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
-      selRand = (o) => o[rand(0, o.length - 1)],
-      distanceTo = (x1, y1, x2, y2) => Math.sqrt((Math.pow(x2 - x1, 2)) + (Math.pow(y2 - y1, 2))),
-      shouldDraw = (x, y) => (distanceTo(x1, y1, x, y) >= dist_to_draw),
-      addStr = (x, y) => {
-        const str = document.createElement("div");
-        str.innerHTML = '&#10022;';
-        str.className = 'star';
-        str.style.top = `${y + rand(-20, 20)}px`;
-        str.style.left = `${x}px`;
-        str.style.color = selRand(colors);
-        str.style.fontSize = selRand(fsize);
-        document.body.appendChild(str);
-        const fs = 10 + 5 * parseFloat(getComputedStyle(str).fontSize);
-        str.animate({
-          translate: `0 ${fs}px`,
-          opacity: 0,
-          transform: `rotateX(${rand(1, 500)}deg) rotateY(${rand(1, 500)}deg)`
-        }, {
-          duration: delay,
-          fill: 'forwards',
-        });
-        setTimeout(() => str.remove(), delay);
-      };
-
-    addEventListener("mousemove", (e) => {
-      const { pageX, pageY } = e;
-      if (shouldDraw(pageX, pageY)) {
-        addStr(pageX, pageY);
-        x1 = pageX;
-        y1 = pageY;
-      }
-    });
-  </script>
 
 
 
-  <script>
-    const otherData = [
-      { name: 'ToCa', x: 1.36, y: 0.3569, color: '#3B5B92', offset: 0.008 },
-      { name: 'DiTFastAttn2', x: 1.42, y: 0.3430, color: '#4FA3B5', offset: -0.008 },
-      { name: 'TeaCache', x: 2.00, y: 0.2160, color: '#8CA77B', offset: 0.011 },
-      { name: 'SADA', x: 2.02, y: 0.0600, color: '#E1B168', offset: -0.005 },
-      { name: 'TaylorSeer', x: 3.18, y: 0.4259, color: '#D46A6A', offset: 0.000 }
-    ];
 
-    const oursData = [
-      { name: 'Quality', x: 1.70, y: 0.0417, offset: 0.015 },
-      { name: 'Balanced', x: 1.92, y: 0.0436, offset: -0.005 },
-      { name: 'Medium', x: 2.25, y: 0.0655, offset: 0.012 },
-      { name: 'Fast', x: 2.91, y: 0.1353, offset: 0.008 },
-      { name: 'Turbo', x: 3.65, y: 0.2239, offset: 0.015 }
-    ];
-    const chart = echarts.init(document.getElementById('main'));
-    const option = {
-      backgroundColor: 'white',
-      tooltip: {
-        trigger: 'axis',
-        formatter: function (params) {
-          // params 里可能包含多条数据，取折线的数据点
-          let linePoint = params.find(p => p.seriesType === 'line');
-          if (linePoint) {
-            let speedup = linePoint.value[0].toFixed(2); // 两位小数
-            let lpips = linePoint.value[1].toFixed(3);   // 三位小数
-            return `Speedup: ${speedup}<br/>LPIPS: ${lpips}`;
-          }
-          return '';
-        }
-      },
-      grid: { left: 70, right: 20, top: 50, bottom: 60 },
-      xAxis: {
-        type: 'value',
-        name: 'Speedup (×)',
-        nameLocation: 'middle',
-        nameGap: 30,
-        min: 0.8,
-        max: 3.8,
-        axisLabel: { fontSize: 16, fontFamily: 'Times New Roman' },
-        nameTextStyle: { fontSize: 16, fontFamily: 'Times New Roman' }
-      },
-      yAxis: {
-        type: 'value',
-        name: 'LPIPS ↓',
-        nameLocation: 'middle',
-        nameGap: 40,
-        min: 0,
-        max: 0.45,
-        interval: 0.1,
-        axisLabel: { fontSize: 16, fontFamily: 'Times New Roman' },
-        nameTextStyle: { fontSize: 16, fontFamily: 'Times New Roman' }
-      },
-      series: [
-        {
-          type: 'custom',
-          renderItem: function (params, api) {
-            const barWidthAbs = 0.10; // 固定宽度
-            const idx = params.dataIndex;
-            const item = otherData[idx];
-            const xVal = api.value(0);
-            const yVal = api.value(1);
 
-            const coordLeft = api.coord([xVal - barWidthAbs / 2, yVal]);
-            const coordRight = api.coord([xVal + barWidthAbs / 2, 0]);
-            const coordTop = api.coord([xVal, yVal]);
-            const coordBottom = api.coord([xVal, 0]);
-
-            return {
-              type: 'group',
-              children: [
-                {
-                  type: 'rect',
-                  shape: {
-                    x: coordLeft[0],
-                    y: coordTop[1],
-                    width: coordRight[0] - coordLeft[0],
-                    height: coordBottom[1] - coordTop[1]
-                  },
-                  style: {
-                    fill: item.color,
-                    opacity: 0.4
-                  }
-                },
-                {
-                  type: 'text',
-                  style: {
-                    text: item.name,
-                    x: coordTop[0],
-                    y: coordTop[1] - 5,
-                    textAlign: 'center',
-                    textVerticalAlign: 'bottom',
-                    fill: item.color,
-                    fontWeight: 'bold',
-                    fontFamily: 'Times New Roman',
-                    fontSize: 14
-                  }
-                }
-              ]
-            };
-          },
-          encode: { x: 0, y: 1 },
-          data: otherData.map(d => [d.x, d.y, d.color]),
-          tooltip: { show: false }
-        },
-        {
-          type: 'line',
-          data: [[1.0, 0.0], ...oursData.map(d => [d.x, d.y])],
-          symbol: 'circle',
-          symbolSize: 8,
-          itemStyle: { color: '#750014' },
-          lineStyle: { width: 3, color: '#750014' },
-          areaStyle: { color: 'rgba(117,0,20,0.2)' },
-          label: {
-            show: true,
-            position: 'top',
-            fontWeight: 'bold',
-            fontFamily: 'Times New Roman',
-            fontSize: 14,
-            formatter: function (params) {
-              const point = oursData.find(o => o.x === params.value[0]);
-              return point ? point.name : '';
-            }
-          },
-          animationDuration: 2000,
-          animationEasing: 'linear'
-        }
-      ]
-    };
-
-    // 正常初始化图表并渲染一次（无动画）
-
-    const initialOption = {
-      ...option,
-      series: [
-        option.series[0], // 只保留柱状图
-        {
-          ...option.series[1],
-          data: [], // 折线图先空
-          animation: false
-        }
-      ]
-    };
-    chart.setOption(initialOption, true);
-
-    // 控制动画播放
-    let animationPlayed = false;
-    function playAnimation() {
-      if (animationPlayed) return;
-      animationPlayed = true;
-      chart.clear();                  // 清空画布
-      chart.setOption(option, true);  // 重新渲染，触发动画
-    }
-
-    // 观察 Figure 1 说明文字进入视口
-    const observermain = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          playAnimation();
-          obs.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    observermain.observe(document.getElementById('figure1-caption'));
-
-  </script>
 
   <script>
     // 💡 所有 timeout 句柄存储数组（全局）
@@ -1660,7 +1283,7 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
       fig2Timers = [];
 
       // ✅ 定义统一的 setTimeout 包装器
-      const addTimer = (cb, delay) => fig2Timers.push(setTimeout(cb, delay));
+      const addTimer = (cb, delay) => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? cb() : fig2Timers.push(setTimeout(cb, delay));
 
       // ✅ 重置 DOM 状态（初始状态）
       document.getElementById('model-right').classList.remove('model-gray');
@@ -1763,80 +1386,7 @@ Controlled by a sparsity ratio, ZEUS demonstrates a efficiency-fidelity tradeoff
 
 
 
-  <script>
-    (function () {
-      const splash = document.getElementById('zeus-splash');
-      const thunder = document.getElementById('thunder');
 
-      // 置顶 & 锁滚 & 隐藏底下首屏
-      window.scrollTo(0, 0);
-      document.body.classList.add('lock-scroll', 'splashing');
-
-      // 首次交互“武装”音频
-      const armAudio = () => {
-        if (!thunder) return;
-        thunder.play().then(() => { thunder.pause(); thunder.currentTime = 0; }).catch(() => { });
-        window.removeEventListener('pointerdown', armAudio);
-      };
-      window.addEventListener('pointerdown', armAudio, { once: true });
-
-      // 时间线：雷声 -> 幕布打开 -> 闪电淡出
-      setTimeout(() => { if (thunder) thunder.play().catch(() => { }); }, 950);
-      setTimeout(() => { splash.classList.add('open'); }, 1200);
-      setTimeout(() => { splash.classList.add('done'); }, 1650);
-
-      // “轻微滚动/按键/上滑触控”就整屏滚到下一页
-      let jumped = false, touchStartY = 0;
-      const goNext = () => {
-        if (jumped) return;
-        jumped = true;
-        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-        setTimeout(() => { document.body.classList.remove('lock-scroll', 'splashing'); }, 650);
-      };
-
-      function onWheel(e) { if (!jumped) { e.preventDefault(); goNext(); } }
-      function onKey(e) {
-        const k = e.key;
-        if (k === ' ' || k === 'Spacebar' || k === 'ArrowDown' || k === 'PageDown' || k === 'Enter') {
-          e.preventDefault(); goNext();
-        }
-      }
-      function onTouchStart(e) { touchStartY = e.touches[0].clientY; }
-      function onTouchMove(e) {
-        const dy = touchStartY - e.touches[0].clientY;
-        if (dy > 6 && !jumped) { e.preventDefault(); goNext(); }
-      }
-
-      window.addEventListener('wheel', onWheel, { passive: false });
-      window.addEventListener('keydown', onKey);
-      window.addEventListener('touchstart', onTouchStart, { passive: true });
-      window.addEventListener('touchmove', onTouchMove, { passive: false });
-
-      // 小雪（与之前一致，轻量）
-      const canvas = document.getElementById('snow');
-      if (canvas && canvas.getContext) {
-        const ctx = canvas.getContext('2d'); let W = 0, H = 0, flakes = [];
-        function resize() {
-          W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight;
-          flakes = Array.from({ length: Math.round(W * H / 12000) + 80 }, () => ({
-            x: Math.random() * W, y: Math.random() * H, r: Math.random() * 2 + 0.6,
-            vx: (Math.random() * 0.6 - 0.3), vy: Math.random() * 0.9 + 0.4
-          }));
-        }
-        window.addEventListener('resize', resize); resize();
-        (function draw() {
-          ctx.clearRect(0, 0, W, H); ctx.fillStyle = 'rgba(255,255,255,.95)';
-          const t = Date.now() * 0.0012;
-          for (const f of flakes) {
-            f.x += f.vx + Math.sin(t + f.y * 0.015) * 0.15; f.y += f.vy;
-            if (f.y > H) { f.y = -5; f.x = Math.random() * W; } if (f.x < -5) f.x = W + 5; if (f.x > W + 5) f.x = -5;
-            ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fill();
-          }
-          requestAnimationFrame(draw);
-        })();
-      }
-    })();
-  </script>
 
 </body>
 

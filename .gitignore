@@ -1,0 +1,14 @@
+# Local camera-ready sources; publish only the selected website assets.
+/orginal paper/
+
+# Superseded local draft; the project page links to the public arXiv PDF.
+/static/media/ZEUS_ICML2026.pdf
+
+# Local checks, previews, and Python cache.
+/tmp/
+/output/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+Thumbs.db
